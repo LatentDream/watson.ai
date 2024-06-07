@@ -1,6 +1,3 @@
-<p align="center">
-    <img height=128 src="./src/assets/icon.png"/>
-</p>
 # Watson.ai 🔎 | Meeting Recorder & Summarizer
 
 Easily record and extract the most important information from your meetings!
@@ -19,12 +16,12 @@ Enter your API token in the app settings to use the transcription feature.
 2. OpenAI API: [link](https://openai.com/)
 3. _Optional_ Affinity API: [link](https://www.affinity.co/)
 
+## Disclaimer:
+Please be aware that recording meetings without consent may not be legal in all regions. By using Watson.ai for meeting recording and summarization, you acknowledge and agree that it is your responsibility to comply with all relevant laws and regulations regarding recording conversations. The developer of Watson.ai provides no legal guarantees or assurances regarding the legality of recording meetings in your jurisdiction. The use of Watson.ai is at your own risk, and the developer accepts no liability for any misuse or legal consequences arising from the use of the application.
+
 ## App Demo
 ![Recording](./docs/recording.png "Recording view")
 ![Meeting](./docs/meeting.png "Meeting view")
-
-## Disclaimer:
-Please be aware that recording meetings without consent may not be legal in all regions. By using Watson.ai for meeting recording and summarization, you acknowledge and agree that it is your responsibility to comply with all relevant laws and regulations regarding recording conversations. The developer of Watson.ai provides no legal guarantees or assurances regarding the legality of recording meetings in your jurisdiction. The use of Watson.ai is at your own risk, and the developer accepts no liability for any misuse or legal consequences arising from the use of the application.
 
 ---
 
@@ -51,11 +48,6 @@ npm install
 cargo tauri dev
 cargo tauri build
 ```
-
-## Usefull docs
-
-### Architecture overview 
-![Watson Architecture](./docs/Watson_Arch.png "High level overview")
 
 ### Quick link
 - Auto-update [docs](https://tauri.app/v1/guides/distribution/updater/)
