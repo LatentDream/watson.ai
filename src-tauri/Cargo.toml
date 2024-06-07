@@ -1,0 +1,43 @@
+[package]
+name = "Watson"
+version = "1.6.0"
+description = "Watson - Meeting recording and insight"
+authors = ["you"]
+license = ""
+repository = ""
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[build-dependencies]
+tauri-build = { version = "1.4", features = [] }
+
+[dependencies]
+tauri = { version = "1.4", features = [ "updater", "shell-all", "notification-all"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_with_macros = "3"
+serde_json = "1.0"
+cpal = "0.15.2"
+hound = "3.0"
+log = "^0.4"
+anyhow = "1.0"
+chrono = "0.4.28"
+uuid = "1.4.1"
+tokio = { version = "1.23.0", features = ["macros", "fs"] }
+reqwest = { version = "0.11", features = ["blocking", "json"] }
+ts-rs = { version = "6" }
+openai_api_rust = "0.1.8"
+dirs = "5.0"
+tauri-plugin-log = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1", features = ["colored"] }
+zip = "0.6"
+
+[target.'cfg(target_os = "macos")'.dependencies]
+screencapturekit = { version = "0.2.8", features = ["ci"] }
+screencapturekit-sys = "0.2.8"
+objc_id = "0.1"
+
+[features]
+# this feature is used for production builds or when `devPath` points to the filesystem
+# DO NOT REMOVE!!
+custom-protocol = ["tauri/custom-protocol"]
+macro-support = []
