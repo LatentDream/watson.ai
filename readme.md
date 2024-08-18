@@ -27,9 +27,8 @@ Please be aware that recording meetings without consent may not be legal in all 
 
 # Development
 
-- [ ] Website
+- [x] Website
 - [ ] Sign the app
-- [ ] Refactor Frontend code + convert to shadcui
 - [ ] Integrate screen capture kit to cpal to have a commun interface instead of conditional compilation
 - [ ] Store API key in keychain
 
