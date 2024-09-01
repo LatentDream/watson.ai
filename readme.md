@@ -27,13 +27,6 @@ Please be aware that recording meetings without consent may not be legal in all 
 
 ---
 
-# Development
-
-- [x] Website
-- [ ] Sign the app
-- [ ] Integrate screen capture kit to cpal to have a commun interface instead of conditional compilation
-- [ ] Store API key in keychain
-
 ### FFMPEG Binary needed as it is bundle with the app
 Add you platform here: 
 ```
