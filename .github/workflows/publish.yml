@@ -62,7 +62,7 @@ jobs:
       - name: Download and extract ffmpeg for aarch64-apple-darwin
         if: runner.os == 'macOS'
         run: |
-          curl -L https://evermeet.cx/ffmpeg/ffmpeg-115575-g4e120fbbbd.7z -o src-tauri/bin/ffmpeg-aarch64-apple-darwin.7z
+          curl -L https://evermeet.cx/ffmpeg/ffmpeg-117286-g262e6f8430.7z -o src-tauri/bin/ffmpeg-aarch64-apple-darwin.7z
           7z e src-tauri/bin/ffmpeg-aarch64-apple-darwin.7z -osrc-tauri/bin/
           mv src-tauri/bin/ffmpeg src-tauri/bin/ffmpeg-aarch64-apple-darwin
           chmod +x src-tauri/bin/ffmpeg-aarch64-apple-darwin
@@ -70,7 +70,7 @@ jobs:
       - name: Download and extract ffmpeg for x86_64-apple-darwin
         if: runner.os == 'macOS'
         run: |
-          curl -L https://evermeet.cx/ffmpeg/ffmpeg-115575-g4e120fbbbd.7z -o src-tauri/bin/ffmpeg-x86_64-apple-darwin.7z
+          curl -L https://evermeet.cx/ffmpeg/ffmpeg-117286-g262e6f8430.7z -o src-tauri/bin/ffmpeg-x86_64-apple-darwin.7z
           7z e src-tauri/bin/ffmpeg-x86_64-apple-darwin.7z -osrc-tauri/bin/
           mv src-tauri/bin/ffmpeg src-tauri/bin/ffmpeg-x86_64-apple-darwin
           chmod +x src-tauri/bin/ffmpeg-x86_64-apple-darwin
