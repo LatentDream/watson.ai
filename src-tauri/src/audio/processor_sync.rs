@@ -85,6 +85,7 @@ fn transcribe_with_assemblyai(audio_path: &String, language: Option<String>) -> 
             match language.to_lowercase().as_str() {
                 "en_us" | "en" | "english" | "anglais" => "en_us".to_string(),
                 "fr" | "french" | "francais" | "français" => "fr".to_string(),
+                "zh" | "chinese" | "中文" => "zh".to_string(),
                 _ => "en_us".to_string()
             }
         }

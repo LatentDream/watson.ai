@@ -9,6 +9,33 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "fe438c63458706e03479442743baae6c88256498e6431708f6dfc520a26515d3"
 
 [[package]]
+name = "Watson"
+version = "1.7.0"
+dependencies = [
+ "anyhow",
+ "chrono",
+ "cpal",
+ "dirs",
+ "hound",
+ "log 0.4.20",
+ "objc_id",
+ "openai_api_rust",
+ "reqwest",
+ "screencapturekit",
+ "screencapturekit-sys",
+ "serde",
+ "serde_json",
+ "serde_with_macros",
+ "tauri",
+ "tauri-build",
+ "tauri-plugin-log",
+ "tokio",
+ "ts-rs",
+ "uuid",
+ "zip",
+]
+
+[[package]]
 name = "addr2line"
 version = "0.21.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -5162,33 +5189,6 @@ dependencies = [
  "wasm-bindgen",
  "wasm-bindgen-futures",
  "web-sys",
-]
-
-[[package]]
-name = "watson"
-version = "1.4.0"
-dependencies = [
- "anyhow",
- "chrono",
- "cpal",
- "dirs",
- "hound",
- "log 0.4.20",
- "objc_id",
- "openai_api_rust",
- "reqwest",
- "screencapturekit",
- "screencapturekit-sys",
- "serde",
- "serde_json",
- "serde_with_macros",
- "tauri",
- "tauri-build",
- "tauri-plugin-log",
- "tokio",
- "ts-rs",
- "uuid",
- "zip",
 ]
 
 [[package]]

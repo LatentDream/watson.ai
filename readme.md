@@ -1,9 +1,8 @@
-<p align="center">
-    <img height=128 src="./src/assets/icon.png"/>
-</p>
 # Watson.ai 🔎 | Meeting Recorder & Summarizer
 
-Easily record and extract the most important information from your meetings!
+Easily record and extract the most important information from your meetings in English, French, and Chinese!
+
+[Website](https://guillaume.sh/watson)
 
 [Download the app here](https://github.com/LatentDream/watson.ai/releases/latest)
 
@@ -19,22 +18,14 @@ Enter your API token in the app settings to use the transcription feature.
 2. OpenAI API: [link](https://openai.com/)
 3. _Optional_ Affinity API: [link](https://www.affinity.co/)
 
+## Disclaimer:
+Please be aware that recording meetings without consent may not be legal in all regions. By using Watson.ai for meeting recording and summarization, you acknowledge and agree that it is your responsibility to comply with all relevant laws and regulations regarding recording conversations. The developer of Watson.ai provides no legal guarantees or assurances regarding the legality of recording meetings in your jurisdiction. The use of Watson.ai is at your own risk, and the developer accepts no liability for any misuse or legal consequences arising from the use of the application.
+
 ## App Demo
 ![Recording](./docs/recording.png "Recording view")
 ![Meeting](./docs/meeting.png "Meeting view")
 
-## Disclaimer:
-Please be aware that recording meetings without consent may not be legal in all regions. By using Watson.ai for meeting recording and summarization, you acknowledge and agree that it is your responsibility to comply with all relevant laws and regulations regarding recording conversations. The developer of Watson.ai provides no legal guarantees or assurances regarding the legality of recording meetings in your jurisdiction. The use of Watson.ai is at your own risk, and the developer accepts no liability for any misuse or legal consequences arising from the use of the application.
-
 ---
-
-# Development
-
-- [ ] Website
-- [ ] Sign the app
-- [ ] Refactor Frontend code + convert to shadcui
-- [ ] Integrate screen capture kit to cpal to have a commun interface instead of conditional compilation
-- [ ] Store API key in keychain
 
 ### FFMPEG Binary needed as it is bundle with the app
 Add you platform here: 
@@ -46,16 +37,18 @@ src-tauri/bin/ffmpeg-x86_64-pc-windows-msvc.exe
 _Tips_: `which ffmpeg` to find the path of your ffmpeg binary and `cp /path/to/ffmpeg /path/to/watson/src-tauri/bin/ffmpeg-{{platform}}`
 
 ### Start App
+
+#### Install dependencies
 ```
+cargo install tauri-cli --version "^1.0.0" --locked
 npm install
+```
+
+#### Run the app
+```
 cargo tauri dev
 cargo tauri build
 ```
-
-## Usefull docs
-
-### Architecture overview 
-![Watson Architecture](./docs/Watson_Arch.png "High level overview")
 
 ### Quick link
 - Auto-update [docs](https://tauri.app/v1/guides/distribution/updater/)

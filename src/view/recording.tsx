@@ -237,7 +237,7 @@ export default function Recording() {
                 setLanguage(value)
               }
               } 
-              data={['English', 'French']} 
+              data={['English', 'Français', '中文']} 
             />
           </Group>
 
