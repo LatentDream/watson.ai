@@ -102,7 +102,7 @@ class RecordingModelController {
   }
 
   async transcribe(meeting: Meeting, language: String): Promise<Meeting> { 
-    /* supported language: "En", "Fr" */
+    /* supported language: "En", "Fr", "Zh" */
     return ipc_invoke(`transcribe_recording`, { path: meeting.audio_path, language: language}).then(
       res => {
         console.log("Transcript: " + res);

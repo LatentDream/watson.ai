@@ -247,7 +247,7 @@ export default function MeetingView() {
     async function retranscript() {
         if (!meeting) {return;}
         let clonedMeeting = { ...meeting };
-        let lang = language == "English" ? "En" : "Fr";
+        let lang = language === "English" ? "En" : language === "Français" ? "Fr" : "Zh";
         notifications.show({
             title: 'Transcription started!',
             message: 'Watson will ping you when the transcription is done.',
@@ -311,7 +311,7 @@ export default function MeetingView() {
                             setLanguage(value)
                         }
                         } 
-                        data={['English', 'French']} 
+                        data={['English', 'Français', '中文']} 
                         />
                     </Group>
                     <Group justify="center">

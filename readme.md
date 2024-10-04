@@ -1,6 +1,6 @@
 # Watson.ai 🔎 | Meeting Recorder & Summarizer
 
-Easily record and extract the most important information from your meetings!
+Easily record and extract the most important information from your meetings in English, French, and Chinese!
 
 [Website](https://guillaume.sh/watson)
 
@@ -37,8 +37,15 @@ src-tauri/bin/ffmpeg-x86_64-pc-windows-msvc.exe
 _Tips_: `which ffmpeg` to find the path of your ffmpeg binary and `cp /path/to/ffmpeg /path/to/watson/src-tauri/bin/ffmpeg-{{platform}}`
 
 ### Start App
+
+#### Install dependencies
 ```
+cargo install tauri-cli --version "^1.0.0" --locked
 npm install
+```
+
+#### Run the app
+```
 cargo tauri dev
 cargo tauri build
 ```
