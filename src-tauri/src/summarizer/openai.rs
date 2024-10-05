@@ -9,15 +9,20 @@ use log::{error, info};
 #[derive(Clone, Deserialize, Serialize, TS)]
 #[ts(export, export_to = "../src/bindings/")]
 pub enum ModelTurbo {
-    GPT3,
+    GPT4oMini,
+    GPT4o,
     GPT4,
+    GPT3,
 }
 
 impl ModelTurbo {
     pub fn as_str(&self) -> &'static str {
         match self {
-            ModelTurbo::GPT3 => "gpt-3.5-turbo-1106",
-            ModelTurbo::GPT4 => "gpt-4-1106-preview",
+            ModelTurbo::GPT4oMini => "gpt-4o-mini",
+            ModelTurbo::GPT4o => "gpt-4o",
+            // Backward compatibility - Use Mini model
+            ModelTurbo::GPT3 => "gpt-4o-mini",
+            ModelTurbo::GPT4 => "gpt-4o-mini",
         }
     }
 }
@@ -28,7 +33,7 @@ pub fn summarize_with_openai(transcript: String, prompt: Option<String>) -> Resu
     let setting = SettingController::new(crate::model::SettingPath::Default).get_setting().unwrap();
     let model = match setting.default_model {
         Some(model) => model,
-        None => ModelTurbo::GPT3,
+        None => ModelTurbo::GPT4oMini,
     };
     info!("OpenAI model: {}", model.as_str());
     let format = String::from("[VERY IMPORTANT: Answer in HTML format directly, Without the header <!DOCTYPE html><html><head> ...</head>), don't include <body> tag don't use <h1> tag, prefer using <h4> and <li> tags instead");

@@ -39,7 +39,7 @@ impl Setting {
                 Prompt { name: String::from("VC Intro Call"), prompt: String::from("Extract key details from your introductory call, ensuring accuracy and conciseness. Ignore the information about our fund, focus on the startup:\n- General discussion points\n- Team overview\n- Company's core activities\n- Problem addressed by the company\n- Target market and sales approach\n- Competitive advantages\n- Business model overview\n- Current status of the company\n- Funding status or recent fundraising efforts\n- Action items, if assigned")},
                 Prompt { name: String::from("Q&A Call"), prompt: String::from("Extract and organize questions and answers from the call in a structured format. Be accurate and use 'N/A' if information is not applicable or unknown.")}
                 ]),
-            default_model: Some(openai::ModelTurbo::GPT4),
+            default_model: Some(openai::ModelTurbo::GPT4oMini),
         }
     }
 }
