@@ -36,7 +36,7 @@ export default function Settings() {
         try {
           const result = await settingFmc.get();
           setSetting(result);
-          setModel(result.default_model? result.default_model : "GPT3");
+          setModel(result.default_model? result.default_model : "GPT4oMini");
           if (result.prompts != null) {
             for (let i = 0; i < result.prompts.length; i++) {
               prompts.set(result.prompts[i].name, result.prompts[i].prompt);
@@ -270,11 +270,11 @@ export default function Settings() {
               setModel(event.currentTarget.value)
               if (setting) {
                 let selectedModel: ModelTurbo;
-                selectedModel = model === "GPT4" ? "GPT3" : "GPT4";
+                selectedModel = model === "GPT4o" ? "GPT4o" : "GPT4oMini";
                 setting.default_model = selectedModel
               }
             }} 
-            data={['GPT3', 'GPT4']} />
+            data={["GPT4oMini" , "GPT4o"]} />
         </Fieldset>
 
         <Fieldset legend="API Keys">
