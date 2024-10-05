@@ -1,10 +1,8 @@
 name: 'publish'
-
 on:
   push:
     branches:
       - release
-
 jobs:
   publish-tauri:
     permissions:
@@ -13,80 +11,57 @@ jobs:
       fail-fast: false
       matrix:
         settings:
-          - platform: 'macos-latest' # for Arm based macs (M1 and above).
+          - platform: 'macos-latest'
             args: '--target aarch64-apple-darwin'
-          - platform: 'macos-latest' # for Intel based macs.
+          - platform: 'macos-latest'
             args: '--target x86_64-apple-darwin'
           - platform: 'windows-latest'
             args: ''
-
     runs-on: ${{ matrix.settings.platform }}
     steps:
       - uses: actions/checkout@v4
-
       - name: setup node
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
-          cache: 'npm' # Set this to npm, yarn or pnpm.
-
+          cache: 'npm'
       - uses: pnpm/action-setup@v2
         name: Install pnpm
         with:
           version: 9
           run_install: false
-
       - name: install Rust stable
         uses: dtolnay/rust-toolchain@stable
         with:
-          # Those targets are only used on macos runners so it's in an `if` to slightly speed up windows and linux builds.
           targets: ${{ matrix.settings.platform == 'macos-latest' && 'aarch64-apple-darwin,x86_64-apple-darwin' || '' }}
-
       - name: Rust cache
         uses: swatinem/rust-cache@v2
         with:
           workspaces: './src-tauri -> target'
-
       - name: install frontend dependencies
-        # If you don't have `beforeBuildCommand` configured you may want to build your frontend here too.
-        run: npm install # change this to npm or pnpm depending on which one you use.
-
-      - name: Install 7z tool on macOS
+        run: npm install
+      - name: Install and copy ffmpeg on macOS
         if: runner.os == 'macOS'
-        run: brew install p7zip
-
+        run: |
+          brew install ffmpeg
+          cp $(which ffmpeg) src-tauri/bin/ffmpeg-aarch64-apple-darwin
+          cp $(which ffmpeg) src-tauri/bin/ffmpeg-x86_64-apple-darwin
+          chmod +x src-tauri/bin/ffmpeg-aarch64-apple-darwin
+          chmod +x src-tauri/bin/ffmpeg-x86_64-apple-darwin
       - name: Install 7z tool on Windows
         if: runner.os == 'Windows'
         run: choco install 7zip --version 19.00
-
-      - name: Download and extract ffmpeg for aarch64-apple-darwin
-        if: runner.os == 'macOS'
-        run: |
-          curl -L https://evermeet.cx/ffmpeg/ffmpeg-117286-g262e6f8430.7z -o src-tauri/bin/ffmpeg-aarch64-apple-darwin.7z
-          7z e src-tauri/bin/ffmpeg-aarch64-apple-darwin.7z -osrc-tauri/bin/
-          mv src-tauri/bin/ffmpeg src-tauri/bin/ffmpeg-aarch64-apple-darwin
-          chmod +x src-tauri/bin/ffmpeg-aarch64-apple-darwin
-
-      - name: Download and extract ffmpeg for x86_64-apple-darwin
-        if: runner.os == 'macOS'
-        run: |
-          curl -L https://evermeet.cx/ffmpeg/ffmpeg-117286-g262e6f8430.7z -o src-tauri/bin/ffmpeg-x86_64-apple-darwin.7z
-          7z e src-tauri/bin/ffmpeg-x86_64-apple-darwin.7z -osrc-tauri/bin/
-          mv src-tauri/bin/ffmpeg src-tauri/bin/ffmpeg-x86_64-apple-darwin
-          chmod +x src-tauri/bin/ffmpeg-x86_64-apple-darwin
-
       - name: Download ffmpeg for x86_64-pc-windows-msvc
         if: runner.os == 'Windows'
         run: |
           curl -L https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-essentials.7z -o src-tauri/bin/ffmpeg-x86_64-pc-windows-msvc.7z
           7z e src-tauri/bin/ffmpeg-x86_64-pc-windows-msvc.7z -osrc-tauri/bin/
           mv src-tauri/bin/ffmpeg.exe src-tauri/bin/ffmpeg-x86_64-pc-windows-msvc.exe
-
       - uses: tauri-apps/tauri-action@v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tagName: app-v__VERSION__ # the action automatically replaces \_\_VERSION\_\_ with the app version.
+          tagName: app-v__VERSION__
           releaseName: 'App v__VERSION__'
           releaseBody: 'See the assets to download this version and install.'
           releaseDraft: true
