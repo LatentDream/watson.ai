@@ -25,3 +25,4 @@ dist-ssr
 
 ./mac-recorder/*
 src-tauri/bin/ffmpeg-x86_64-apple-darwin
+src-tauri/bin/ffmpeg*
