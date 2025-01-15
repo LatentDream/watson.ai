@@ -2,8 +2,6 @@
 
 Easily record and extract the most important information from your meetings in English, French, and Chinese!
 
-[Website](https://guillaume.sh/watson)
-
 [Download the app here](https://github.com/LatentDream/watson.ai/releases/latest)
 
 Supported platform: MacOS, Windows
