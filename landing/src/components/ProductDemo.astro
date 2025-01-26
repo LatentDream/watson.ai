@@ -1,0 +1,72 @@
+---
+import BadgeSelector from './ui/BadgeSelector.astro';
+
+interface IDemo {
+  type: 'video' | 'image';
+  title: string;
+  src: string;
+  alt?: string;
+  disabled?: boolean;
+}
+
+interface Props {
+  demos: IDemo[];
+}
+
+const { demos } = Astro.props;
+
+if (!demos || demos.length === 0) {
+  return null;
+}
+
+const selectedDemo = demos[0];
+const options = demos.map((demo) => ({ 
+  value: demo.title, 
+  disabled: demo.disabled 
+}));
+---
+
+<div class="flex flex-col items-center">
+  <div class="pb-4">
+    <BadgeSelector
+      client:load
+      options={options}
+      selected={selectedDemo.title}
+      setSelected={(title) => {
+        const demo = demos.find(d => d.title === title) || demos[0];
+        // You'll need to implement state management here
+        // Consider using Nanostores or similar
+      }}
+    />
+  </div>
+  <div class="w-full bg-gray-100 rounded-lg p-1 bg-orange-verm mx-auto">
+    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+      <div class="aspect-w-16 aspect-h-9">
+        {selectedDemo.type === 'video' ? (
+          <video
+            class="w-full h-full object-cover"
+            controls
+            autoplay
+            muted
+            loop
+          >
+            <source src={selectedDemo.src} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        ) : (
+          <img
+            src={selectedDemo.src}
+            alt={selectedDemo.alt || 'Product demo'}
+            class="w-full h-full object-cover"
+          />
+        )}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Add client-side interactivity here
+  // You might want to use a store like Nanostores
+  // to manage the selected demo state
+</script>

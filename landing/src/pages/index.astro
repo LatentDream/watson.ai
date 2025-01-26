@@ -2,8 +2,9 @@
 import '@/styles/globals.css'
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
+import ProductDemo from '../components/ProductDemo.astro';
 
-const watsonProductImage = "https://images.unsplash.com/photo-1700729471341-0b0c3c4c6f9c?q=80&w=2940&auto=format&fit=crop";
+const watsonProductImage = "https://images.unsplash.com/photo-1734597949871-54ba938e971f?q=80&w=3432&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
 const demos = [
   {
@@ -31,7 +32,7 @@ const demos = [
 <Layout title="Watson - Meeting Recorder">
   <section class="min-h-screen flex flex-col items-center justify-center gap-32 py-8 px-4">
     <Hero />
-    <!-- <ProductDemo demos={demos} client:load /> -->
+    <ProductDemo demos={demos} client:load />
   </section>
   <!-- <FeatureList /> -->
   <!-- <StartNowCard /> -->
