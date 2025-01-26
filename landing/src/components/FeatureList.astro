@@ -1,0 +1,127 @@
+---
+// FeatureList.astro
+import { Image } from 'astro:assets';
+import affinityIcon from "@/assets/affinity.svg";
+import searchIcon from "@/assets/search.svg";
+import deployIcon from "@/assets/deploy.svg";
+import teamIcon from "@/assets/team.svg";
+import languageIcon from "@/assets/language.svg";
+import simplePowerfulIcon from "@/assets/simple_powerful.svg";
+
+interface Feature {
+  title: string;
+  content: string;
+  size?: 'small' | 'medium' | 'large';
+  buttonText?: string;
+  buttonLink?: string;
+  icon?: any;
+  iconClass?: string
+}
+
+const features: Feature[] = [
+  {
+    title: "",
+    content: "English\nFrench\nChinese",
+    icon: languageIcon,
+    size: "small"
+  },
+  // {
+  //  title: "Team Based",
+  //  content: "Work together efficiently with team-based features, allowing multiple users to access and manage transcriptions",
+  //  icon: teamIcon,
+  //  size: "large",
+  //  iconClass: "h-5 w-5"
+  // },
+  {
+    title: "Advanced Search",
+    content: "Quickly find specific content within your transcriptions using powerful and intuitive search capabilities.",
+    icon: searchIcon,
+    size: "medium",
+    iconClass: "h-8 w-8"
+  },
+  // {
+  //   title: "Flexible Deployment",
+  //   content: "Choose between self-hosted solution for complete control or pay-as-you-go option for scalability and convenience.",
+  //   icon: deployIcon,
+  //   size: "large"
+  // },
+  {
+    title: "Instant",
+    content: "Record\ntranscribe\nin seconds",
+    size: "small"
+  },
+  {
+    title: "",
+    content: "Seamlessly integrate with Affinity.co for enhanced workflow and customer relationship management.",
+    icon: affinityIcon,
+    size: "medium",
+    iconClass: "h-22 w-24"
+  },
+];
+
+const sizeClasses = {
+  small: 'col-span-3 lg:col-span-1',
+  medium: 'col-span-3 lg:col-span-2',
+  large: 'col-span-3 lg:col-span-3'
+};
+---
+
+<div id="features" class="container mx-auto px-4 py-16">
+  <h2 class="text-4xl font-bold text-center text-white mb-2">Features</h2>
+  <Image
+    class="h-12 mx-auto transform -rotate-1 mb-12"
+    src={simplePowerfulIcon}
+    alt="Simple but powerful Text"
+  />
+  <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4">
+    {features.map((feature) => (
+      <div
+        class={`
+          p-4 ${sizeClasses[feature.size || 'medium']}
+          bg-primary/30 text-primary-foreground backdrop-blur-sm
+          text-white border-green-3 border-2
+          shadow-lg hover:shadow-xl hover:border-orange-500
+          transition-all duration-300 rounded-lg
+          flex flex-col justify-between
+          transform ${Math.random() < 0.5 ? 'hover:rotate-1' : 'hover:-rotate-1'}
+        `}
+      >
+        <div class="text-center">
+          <h3 class="mt-3 text-xl font-semibold text-white text-center flex items-center justify-center">
+            {feature.icon && (
+              <Image 
+                class={`h-6 w-6 mr-2 ${feature.iconClass ? feature.iconClass : ""}`}
+                src={feature.icon} 
+                alt={`${feature.title} icon`}
+              />
+            )}
+            {feature.title}
+          </h3>
+        </div>
+        <div class="flex flex-col items-center justify-center h-full">
+          <div class="flex flex-col items-center text-sm justify-center text-center h-full pb-4 text-white">
+            {feature.content.split('\n').map((line) => (
+              <p class="mt-2">{line}</p>
+            ))}
+          </div>
+        </div>
+        {feature.buttonText && feature.buttonLink && (
+          <div class="mt-4">
+            <a
+              href={feature.buttonLink}
+              class="
+                inline-block w-full text-center
+                bg-blue-500 hover:bg-blue-600
+                text-white font-semibold
+                py-2 px-4 rounded-full
+                transition-colors duration-300
+              "
+            >
+              {feature.buttonText}
+            </a>
+          </div>
+        )}
+      </div>
+    ))}
+  </div>
+</div>

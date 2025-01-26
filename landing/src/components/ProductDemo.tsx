@@ -33,8 +33,6 @@ export default function ProductDemo() {
         },
     ];
 
-    console.log("HEELLOO")
-
     const [selectedDemo, setSelectedDemo] = useState(demos[0]);
     const options = demos.map(demo => ({
         value: demo.title,
