@@ -1,0 +1,102 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { DownloadButton } from '@/components/Download';
+
+const sections = {
+  download: 'download',
+  faq: 'faq',
+  policy: 'policy',
+  tos: 'tos',
+  webapp: 'webapp'
+};
+
+---
+
+<Layout>
+  <div class="mt-8 text-white-angel">
+    <section id={sections.download} class="mb-16">
+      <h2 class="text-2xl font-bold mb-4">Download Watson.ai</h2>
+      <p class="mb-4">
+        Watson.ai - Desktop Application - An open-source meeting recorder and summarizer that helps you extract the most important information from your meetings. It's designed to simplify your workflow and save time.
+      </p>
+      <div class="flex flex-col md:flex-row gap-8">
+        <div class="flex-1 mt-6">
+          <DownloadButton
+            distro="mac"
+            label="Download for macOS"
+            size="lg"
+            className="w-full max-w-md mb-2"
+            client:load
+          />
+          <DownloadButton
+            distro="windows"
+            label='Download for Windows'
+            size="lg"
+            className="w-full max-w-md"
+            client:load
+          />
+        </div>
+        <div class="flex-1">
+          <ul class="list-disc pl-6 mb-4">
+            <li>Easily record and transcribe meetings</li>
+            <li>Automatically generate summaries</li>
+            <li>Open-source and continuously improving</li>
+            <li>Available for MacOS and Windows</li>
+          </ul>
+          <p class="mb-4">
+            Found a bug or have a feature request? <a href="https://github.com/latentdream/watson.ai" class="text-yellow-glad hover:underline">Open an issue on GitHub</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id={sections.faq} class="mb-16">
+      <h2 class="text-2xl font-bold mb-4">FAQ</h2>
+      <div class="space-y-4">
+        <div>
+          <h3 class="font-semibold">Is Watson.ai really free?</h3>
+          <p class="text-sm">Yes, Watson.ai is completely free to use. However, you'll need to provide your own API key for the transcription and summarization services it uses.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id={sections.policy} class="mb-16 text-xs">
+      <h2 class="text-2xl font-bold mb-4">Policy</h2>
+      <p>Our policy is designed to ensure a safe and fair environment for all users. Key points include:</p>
+      <ul class="list-disc pl-6 mt-2 text-xs">
+        <li>We respect your privacy and protect your personal information.</li>
+        <li>We do not tolerate any form of harassment or abuse on our platform.</li>
+        <li>We strive to provide accurate and up-to-date information.</li>
+        <li>We reserve the right to suspend or terminate accounts that violate our policies.</li>
+        <li>We encourage users to report any violations or concerns to our support team.</li>
+      </ul>
+      <p class="mt-4 text-xs">For the full policy details, please contact our support team.</p>
+    </section>
+
+
+    <section id={sections.tos} class="mb-16">
+      <h2 class="text-2xl font-bold mb-4">Terms of Service</h2>
+      <p class="text-xs">By using our service, you agree to the following terms:</p>
+      <ul class="list-disc pl-6 mt-2 text-xs">
+        <li>You must be at least 18 years old to use this service.</li>
+        <li>You are responsible for maintaining the confidentiality of your data.</li>
+        <li>You agree not to use the service for any illegal or unauthorized purpose.</li>
+        <li>We reserve the right to modify or terminate the service for any reason, without notice, at any time.</li>
+        <li>We reserve the right to refuse service to anyone for any reason at any time.</li>
+      </ul>
+      <p class="mt-4 text-xs">For the full Terms of Service, please contact our support team.</p>
+      <h3 class="text-md font-bold mt-6 mb-2">Disclaimer:</h3>
+      <p class="text-xs">Please be aware that recording meetings without consent may not be legal in all regions. By using Watson.ai for meeting recording and summarization, you acknowledge and agree that it is your responsibility to comply with all relevant laws and regulations regarding recording conversations. The developer of Watson.ai provides no legal guarantees or assurances regarding the legality of recording meetings in your jurisdiction. The use of Watson.ai is at your own risk, and the developer accepts no liability for any misuse or legal consequences arising from the use of the application.</p>
+    </section>
+  </div>
+
+  <script>
+    // Handle hash-based navigation
+    if (window.location.hash) {
+      const element = document.querySelector(window.location.hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  </script>
+</Layout>

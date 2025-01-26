@@ -1,0 +1,32 @@
+---
+import '@/styles/globals.css'
+import Toolbar from './Toolbar.astro';
+import Footer from './Footer.astro';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Modern SaaS template built with Astro and shadcn/ui" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Watson - Meeting Recorder</title>
+  </head>
+  <body>
+    <div class="bg-gradient-to-r from-green-1 to-green-3 min-h-screen overflow-hidden">
+      <Toolbar />
+      <div class="max-w-5xl mx-auto grid grid-cols-[1px_1fr_1px] gap-x-8">
+        <div class="w-[0.5px] bg-white-angel opacity-50" />
+        <div class="grid grid-rows-[auto_1fr_auto_auto]">
+          <main class="min-h-screen">
+            <slot />
+          </main>
+        </div>
+        <div class="w-[0.5px] bg-white-angel opacity-50" />
+      </div>
+      <Footer />
+    </div>
+  </body>
+</html>
