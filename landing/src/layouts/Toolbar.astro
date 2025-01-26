@@ -1,0 +1,60 @@
+---
+import { Button } from '@/components/ui/button';
+---
+
+<nav class="p-4 shadow-md">
+  <div class="container mx-auto max-w-6xl">
+    <ul class="flex justify-between items-center">
+      <li>
+        <h1 class="text-2xl font-bold text-white flex gap-4 align-middle">
+          <a href="/" class="hover:text-green-3 transition-colors">
+            Merlion.dev
+          </a>
+          <div> | </div> 
+          <a href="/" class="hover:text-green-3 transition-colors">
+            Watson.ai
+          </a>
+        </h1>
+      </li>
+      <li>
+        <ul class="hidden md:flex space-x-6 text-white">
+          <li>
+            <a href="/#features" class="hover:text-green-3 transition-colors">Features</a>
+          </li>
+          <li>
+            <a href="/#pricing" class="hover:text-green-3 transition-colors">Pricing</a>
+          </li>
+          <li>
+            <a href="https://cal.com/guillaume-thibault/30min" class="hover:text-green-3 transition-colors">
+              Contact
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <ul class="flex items-center space-x-2">
+          <li>
+            <Button variant="ghost" className="text-white hover:text-green-3">
+              <a href="/docs#download">Download</a>
+            </Button>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<script>
+  document.querySelector('a[href="/#pricing"]')?.addEventListener('click', (e) => {
+    if (window.location.pathname === '/') {
+      e.preventDefault();
+      document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+  document.querySelector('a[href="/#features"]')?.addEventListener('click', (e) => {
+    if (window.location.pathname === '/') {
+      e.preventDefault();
+      document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+</script>

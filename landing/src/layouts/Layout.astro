@@ -1,5 +1,5 @@
 ---
-// import Toolbar from './Toolbar';
+import Toolbar from './Toolbar.astro';
 import Footer from './Footer.astro';
 
 interface Props {
@@ -21,7 +21,7 @@ const { title } = Astro.props;
   </head>
   <body>
     <div class="bg-gradient-to-r from-green-1 to-green-3 min-h-screen overflow-hidden">
-      <!-- <Toolbar /> -->
+      <Toolbar />
       <div class="max-w-5xl mx-auto grid grid-cols-[1px_1fr_1px] gap-x-8">
         <div class="w-[0.5px] bg-white-angel opacity-50" />
         <div class="grid grid-rows-[auto_1fr_auto_auto]">
