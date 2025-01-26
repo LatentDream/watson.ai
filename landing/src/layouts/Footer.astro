@@ -1,4 +1,5 @@
 ---
+import { Icon } from "astro-iconify";
 const currentYear = new Date().getFullYear();
 ---
 
@@ -7,14 +8,31 @@ const currentYear = new Date().getFullYear();
     <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pl-8">
       <div class="col-span-1 md:col-span-2">
         <a href="/" class="flex items-center mb-4">
-          <!-- <img src={icon} alt="Merlion" class="h-8 w-8 mr-2" /> -->
           <span class="text-xl font-bold text-green-3">Merlion.dev</span>
         </a>
         <p class="mb-4">Merlion.dev is a collection of alternative tools. <br/> Lightweight, powerful, and yet stunning.</p>
         <p class="text-sm">&copy; {currentYear} Guillaume Thibault. All rights reserved</p>
-        <div class="mt-4">
-          <a href="/docs#tos" class="text-sm mr-4 hover:text-green-3">Terms of Service</a>
-          <a href="/docs#policy" class="text-sm hover:text-green-3">Privacy Policy</a>
+        <div class="flex space-x-4 my-4">
+          <!-- <a href="https://bsky.app/profile/latentdream.bsky.social" target="_blank"> -->
+          <!--   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="w-4 h-4 text-gray-600 hover:text-gray-500 dark:text-neutral-200"> -->
+          <!--     <path d="M3.468 1.948C5.303 3.325 7.276 6.118 8 7.616c.725-1.498 2.697-4.29 4.532-5.668C13.855.955 16 .186 16 2.632c0 .489-.28 4.105-.444 4.692-.572 2.04-2.653 2.561-4.504 2.246 3.236.551 4.06 2.375 2.281 4.2-3.376 3.464-4.852-.87-5.23-1.98-.07-.204-.103-.3-.103-.218 0-.081-.033.014-.102.218-.379 1.11-1.855 5.444-5.231 1.98-1.778-1.825-.955-3.65 2.28-4.2-1.85.315-3.932-.205-4.503-2.246C.28 6.737 0 3.12 0 2.632 0 .186 2.145.955 3.468 1.948Z" fill="currentColor"/> -->
+          <!--   </svg> -->
+          <!-- </a> -->
+          <!-- <a href="https://www.github.com/latentdream" target="_blank"> -->
+          <!--   <Icon name="radix-icons:github-logo" class="w-4 h-4 text-gray-600 hover:text-gray-500 dark:text-neutral-200"/> -->
+          <!-- </a> -->
+          <a href="https://latent.blog" target="_blank">
+            <Icon name="radix-icons:crumpled-paper" class="w-4 h-4 text-gray-600 hover:text-gray-500 dark:text-neutral-200"/>
+          </a>
+          <a href="https://x.com/latentdream" target="_blank">
+            <Icon name="radix-icons:twitter-logo" class="w-4 h-4 text-gray-600 hover:text-gray-500 dark:text-neutral-200"/>
+          </a>
+          <a href="https://cal.com/guillaume-thibault/30min" target="_blank">
+            <Icon name="radix-icons:calendar" class="w-4 h-4 text-gray-600 hover:text-gray-500 dark:text-neutral-200"/>
+          </a>
+          <a href="mailto:guillaume.thibault.98@proton.me" target="_blank">
+            <Icon name="radix-icons:envelope-closed" class="w-4 h-4 text-gray-600 hover:text-gray-500 dark:text-neutral-200"/>
+          </a>
         </div>
       </div>
       <div>
@@ -28,10 +46,10 @@ const currentYear = new Date().getFullYear();
       <div>
         <h3 class="font-semibold text-gray-900 mb-4">Help</h3>
         <ul class="space-y-2">
-          <li><a href="https://x.com/LatentDream" target="_blank" rel="noopener noreferrer" class="hover:text-green-3">Updates</a></li>
           <li><a href="/docs#faq" class="hover:text-green-3">FAQs</a></li>
           <li><a href="mailto:contact@merlion.dev" class="hover:text-green-3">Email Support</a></li>
-          <li><a href="/status" class="hover:text-green-3">System Status</a></li>
+          <li><a href="/docs#tos" class="text-sm mr-4 hover:text-green-3">Terms of Service</a></li>
+          <li><a href="/docs#policy" class="text-sm hover:text-green-3">Privacy Policy</a></li>
         </ul>
       </div>
     </div>

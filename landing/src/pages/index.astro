@@ -1,6 +1,7 @@
 ---
 import '@/styles/globals.css'
 import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
 
 const watsonProductImage = "https://images.unsplash.com/photo-1700729471341-0b0c3c4c6f9c?q=80&w=2940&auto=format&fit=crop";
 
@@ -29,10 +30,8 @@ const demos = [
 
 <Layout title="Watson - Meeting Recorder">
   <section class="min-h-screen flex flex-col items-center justify-center gap-32 py-8 px-4">
-    <!-- <CallToAction /> -->
+    <Hero />
     <!-- <ProductDemo demos={demos} client:load /> -->
-
-		<p> Hello World </p> 
   </section>
   <!-- <FeatureList /> -->
   <!-- <StartNowCard /> -->
