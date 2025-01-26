@@ -91,7 +91,7 @@ export const DownloadButtonWithAutoDetectDistro = ({ label, size, ...props }: Pr
     return <DownloadButton {...props} size={size} label={label} distro={distro} />
 }
 
-const DownloadButton = ({ distro, label, size, signupOnLoading, ...props }: WithDistroProp) => {
+export const DownloadButton = ({ distro, label, size, signupOnLoading, ...props }: WithDistroProp) => {
     const [data, setData] = useState<GithubAPIResponse | undefined>();
 
     useEffect(() => {
@@ -154,5 +154,3 @@ const DownloadButton = ({ distro, label, size, signupOnLoading, ...props }: With
         </Button>
     );
 };
-
-export default DownloadButton;
