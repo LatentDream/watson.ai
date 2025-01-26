@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import BadgeSelector from './ui/BadgeSelector';
 import demoLight from '../assets/demo_light.webp';
+import demoSum from '../assets/demo_sum.webp';
 
 interface IDemo {
     type: 'video' | 'image';
@@ -21,7 +22,7 @@ export default function ProductDemo() {
         {
             alt: 'product demo - summary',
             title: 'Summarize Content',
-            src: demoLight.src || demoLight,
+            src: demoSum.src || demoSum,
             type: 'image'
         },
         {

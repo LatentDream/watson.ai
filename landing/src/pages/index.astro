@@ -8,10 +8,10 @@ import Pricing from '../components/Pricing.astro';
 
 ---
 
-<Layout title="Watson - Meeting Recorder">
+<Layout>
   <section class="min-h-screen flex flex-col items-center justify-center gap-32 py-8 px-4">
     <Hero />
-    <ProductDemo />
+    <ProductDemo client:load />
   </section>
   <FeatureList />
   <Pricing />

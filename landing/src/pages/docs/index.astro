@@ -21,7 +21,20 @@ const sections = {
       </p>
       <div class="flex flex-col md:flex-row gap-8">
         <div class="flex-1 mt-6">
-          <DownloadButton client:load />
+          <DownloadButton
+            distro="mac"
+            label="Download for macOS"
+            size="lg"
+            className="w-full max-w-md mb-2"
+            client:load
+          />
+          <DownloadButton
+            distro="windows"
+            label='Download for Windows'
+            size="lg"
+            className="w-full max-w-md"
+            client:load
+          />
         </div>
         <div class="flex-1">
           <ul class="list-disc pl-6 mb-4">

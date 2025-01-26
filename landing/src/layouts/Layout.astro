@@ -2,12 +2,6 @@
 import '@/styles/globals.css'
 import Toolbar from './Toolbar.astro';
 import Footer from './Footer.astro';
-
-interface Props {
-  title: string;
-}
-
-const { title } = Astro.props;
 ---
 
 <!doctype html>
@@ -18,7 +12,7 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <title>Watson - Meeting Recorder</title>
   </head>
   <body>
     <div class="bg-gradient-to-r from-green-1 to-green-3 min-h-screen overflow-hidden">

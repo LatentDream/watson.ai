@@ -38,6 +38,7 @@ type GithubAPIResponse = {
 };
 
 function capitalize(str: string): string {
+    if (!str) return "this platform"
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
@@ -109,17 +110,13 @@ export const DownloadButton = ({ distro, label, size, signupOnLoading, ...props 
 
     // So there is always a button
     if (!data) {
-        if (signupOnLoading) {
-            return <Button
-                {...props}
-                onClick={() => window.location.href = '/signup'}
-                size={size}
-            >
-                <span>{"Get Started"}</span>
-            </Button>
-        } else {
-            return null
-        }
+        return <Button
+            {...props}
+            disabled
+            size={size}
+        >
+            <span>{"Loading.."}</span>
+        </Button>
     }
 
     // When ready, Display the download button
