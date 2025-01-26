@@ -106,3 +106,23 @@
     @apply bg-background text-foreground;
   }
 }
+
+.card {
+  @apply w-full py-16 p-4 bg-primary/30 text-primary-foreground backdrop-blur-sm text-white border-green-3 border-2 shadow-lg hover:shadow-xl hover:border-orange-verm transition-all duration-300 rounded-lg;
+}
+
+.card header h2 {
+  @apply text-3xl font-bold text-center;
+}
+
+.card .content p {
+  @apply text-center text-gray-300 mt-2 px-8;
+}
+
+.card footer {
+  @apply flex justify-center mt-4;
+}
+
+.button {
+  @apply px-4 py-2 bg-orange-verm hover:bg-orange-verm text-white rounded-md transition-colors;
+}
