@@ -2,37 +2,13 @@
 import '@/styles/globals.css'
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
-import ProductDemo from '../components/ProductDemo.astro';
-
-const watsonProductImage = "https://images.unsplash.com/photo-1734597949871-54ba938e971f?q=80&w=3432&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
-
-const demos = [
-  {
-    alt: 'product demo - recording',
-    title: 'Record Your Meeting',
-    src: watsonProductImage,
-    type: 'image'
-  },
-  {
-    alt: 'product demo - summary',
-    title: 'Summarize Content',
-    src: watsonProductImage,
-    type: 'image'
-  },
-  {
-    alt: 'product demo - search',
-    title: 'Search Coming Soon!',
-    src: watsonProductImage,
-    type: 'image',
-    disabled: true
-  },
-];
+import ProductDemo from '../components/ProductDemo';
 ---
 
 <Layout title="Watson - Meeting Recorder">
   <section class="min-h-screen flex flex-col items-center justify-center gap-32 py-8 px-4">
     <Hero />
-    <ProductDemo demos={demos} client:load />
+    <ProductDemo />
   </section>
   <!-- <FeatureList /> -->
   <!-- <StartNowCard /> -->

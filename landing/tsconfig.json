@@ -10,6 +10,10 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "react",
+    "typeRoots": [
+      "./src/types",
+      "./node_modules/@types"
+    ],
     "baseUrl": ".",
     "paths": {
       "@/*": [
