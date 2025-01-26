@@ -1,0 +1,39 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-white text-gray-600 py-12">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pl-8">
+      <div class="col-span-1 md:col-span-2">
+        <a href="/" class="flex items-center mb-4">
+          <!-- <img src={icon} alt="Merlion" class="h-8 w-8 mr-2" /> -->
+          <span class="text-xl font-bold text-green-3">Merlion.dev</span>
+        </a>
+        <p class="mb-4">Merlion.dev is a collection of alternative tools. <br/> Lightweight, powerful, and yet stunning.</p>
+        <p class="text-sm">&copy; {currentYear} Guillaume Thibault. All rights reserved</p>
+        <div class="mt-4">
+          <a href="/docs#tos" class="text-sm mr-4 hover:text-green-3">Terms of Service</a>
+          <a href="/docs#policy" class="text-sm hover:text-green-3">Privacy Policy</a>
+        </div>
+      </div>
+      <div>
+        <h3 class="font-semibold text-gray-900 mb-4">Products</h3>
+        <ul class="space-y-2">
+          <li><a href="https://note.merlion.dev" class="hover:text-green-3">Note CLI</a></li>
+          <li><a href="https://watson.merlion.dev" class="hover:text-green-3">Watson.ai</a></li>
+          <li><a href="https://github.com/LatentDream/watson.ai/issues" target="_blank" rel="noopener noreferrer" class="hover:text-green-3">↳ Get Involved</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold text-gray-900 mb-4">Help</h3>
+        <ul class="space-y-2">
+          <li><a href="https://x.com/LatentDream" target="_blank" rel="noopener noreferrer" class="hover:text-green-3">Updates</a></li>
+          <li><a href="/docs#faq" class="hover:text-green-3">FAQs</a></li>
+          <li><a href="mailto:contact@merlion.dev" class="hover:text-green-3">Email Support</a></li>
+          <li><a href="/status" class="hover:text-green-3">System Status</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
