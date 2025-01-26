@@ -1,0 +1,79 @@
+---
+import { Button } from "@/components/ui/button";
+
+interface Props {
+  title: string;
+  subtitle: string;
+  price: string;
+  features: string[];
+  toKnow: string[];
+  buttonText: string;
+  isPro?: boolean;
+  disabled?: boolean;
+}
+
+const { 
+  title, 
+  subtitle, 
+  price, 
+  features, 
+  toKnow, 
+  buttonText, 
+} = Astro.props;
+---
+
+<div class="flex-1 flex items-center w-full max-w-96 mx-auto">
+  <div class={`w-full p-6 rounded-lg border card`}>
+    <div class="space-y-2 mb-6">
+      <h3 class="text-2xl font-semibold">{title}</h3>
+      <p class="text-sm">{subtitle}</p>
+    </div>
+    <div>
+      <div class="mb-4">
+        <span class="text-3xl font-bold text-white">{price}</span>
+      </div>
+      <Button 
+        variant={"translucide"}
+        className="w-full px-4 py-2 rounded-md text-primary-foreground"
+      >
+        {buttonText}
+      </Button>
+      <ul class="mt-4 space-y-2 text-white">
+        {features.map((feature) => (
+          <li class="flex items-center gap-2">
+            <svg 
+              width="15" 
+              height="15" 
+              viewBox="0 0 15 15" 
+              fill="none" 
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-8"
+            >
+              <path 
+                d="M7.5.877a6.623 6.623 0 100 13.246A6.623 6.623 0 007.5.877zM7.5 0a7.5 7.5 0 110 15 7.5 7.5 0 010-15z"
+                fill="currentColor"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+              />
+              <path 
+                d="M11.446 5.245l-4.31 4.31-2.582-2.582-.53.53 3.112 3.112 4.84-4.84-.53-.53z"
+                fill="currentColor"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+              />
+            </svg>
+            <span>{feature}</span>
+          </li>
+        ))}
+      </ul>
+      <div class="h-px bg-border my-4" />
+      <ul class="mt-4 space-y-1 text-white">
+        {toKnow.map((info) => (
+          <li class="flex items-center gap-1">
+            <span class="text-xs">→ {info}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</div>

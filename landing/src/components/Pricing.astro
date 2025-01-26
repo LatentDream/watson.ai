@@ -1,0 +1,30 @@
+---
+import PricingCard from "./ui/PricingCard.astro";
+import { Image } from 'astro:assets';
+import simplePricing from "@/assets/simple_pricing.svg";
+---
+
+<div id="features" class="container mx-auto px-4 py-16">
+  <Image
+    class="h-12 mx-auto transform -rotate-1 mb-12"
+    src={simplePricing}
+    alt="Simple but powerful Text"
+  />
+  <PricingCard
+    title="Watson.ai - Desktop App"
+    subtitle="For personal and minimal use."
+    price="Free"
+    features={[
+      'Full-featured Desktop app',
+      'Advanced Transcription & Summarization',
+      'Note-taking capabilities',
+      'Local data storage',
+      'Windows & MacOS support',
+    ]}
+    toKnow={[
+      'Requires your own OpenAI & Assembly AI API keys',
+      'Data saved locally on your device',
+    ]}
+    buttonText="Download Free App"
+  />
+</div>

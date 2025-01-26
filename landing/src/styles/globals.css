@@ -108,7 +108,7 @@
 }
 
 .card {
-  @apply w-full py-16 p-4 bg-primary/30 text-primary-foreground backdrop-blur-sm text-white border-green-3 border-2 shadow-lg hover:shadow-xl hover:border-orange-verm transition-all duration-300 rounded-lg;
+  @apply w-full p-8 bg-primary/30 text-primary-foreground backdrop-blur-sm text-white border-green-3 border-2 shadow-lg hover:shadow-xl hover:border-orange-verm transition-all duration-300 rounded-lg;
 }
 
 .card header h2 {
